@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-
   def home
-    #home page placeholder
+    # Placeholder for home page
   end
 
   def new
@@ -15,7 +14,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(name: params[:user][:name])
 
       if @user.authenticate(params[:password])
-        session[:user_id] = current_user.id
+        session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
         redirect_to signin_path
@@ -27,5 +26,4 @@ class SessionsController < ApplicationController
     session.destroy
     redirect_to root_path
   end
-   
 end
