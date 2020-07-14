@@ -14,4 +14,5 @@ class Ride < ActiveRecord::Base
       "Thanks for ride the #{attraction.name}"
     end
   end
+  
 end
