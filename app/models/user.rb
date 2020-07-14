@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
       nausea.to_i > happiness.to_i ? "sad" : "happy"
     end
   end
-  
+
 end
+
+User.connection
