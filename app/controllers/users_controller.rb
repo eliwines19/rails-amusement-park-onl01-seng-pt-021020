@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to @user, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to @user, notice: 'User was successfully updated.'
     else
       render :edit
     end
@@ -39,17 +39,15 @@ class UsersController < ApplicationController
   def destroy
     admin_only
     @user.destroy
-    redirect_to users_url, notice: "User was successfully destroyed."
+    redirect_to users_url, notice: 'User was successfully destroyed.'
   end
 
   private
+    def set_user
+      @user = User.find_by(id: params[:id])
+    end
 
-  def set_user
-    @user = User.find_by(id: params[:id])
-  end
-
-  def user_params
-    params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height, :admn)
-  end
-  
+    def user_params
+      params.require(:user).permit(:name, :password, :nausea, :happiness, :tickets, :height, :admin)
+    end
 end
