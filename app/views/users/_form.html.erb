@@ -2,12 +2,12 @@
 
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error")%> prohibited this user from being saved: </h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-        <%= @user.errors.fulled_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
@@ -44,7 +44,7 @@
 
   <div class="field">
     <%= f.label :height %>
-    <%= f.number_field :height %>
+    <%= f.number_field :height %> inches
   </div>
 
   <div class="actions">
