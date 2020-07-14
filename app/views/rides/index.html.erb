@@ -22,6 +22,10 @@
         <td><%= ride.nausea_rating %></td>
         <td><%= ride.happiness_rating %></td>
         <td><%= ride.min_height %></td>
+        <td><%= link_to 'Show', ride %></td>
+        <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
+        <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure you want to delete this ride?'} %></td>
       </tr>
+    <% end %>
   </tbody>
 </table>
