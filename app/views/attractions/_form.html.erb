@@ -1,0 +1,5 @@
+<%= form_with(model: attraction, local: true) do |form| %>
+  <%= if attraction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attraction.errors.count, "error") %> "prohibitied this attraction from being saved"</h2>
+    </div>
