@@ -1,0 +1,6 @@
+<%= form_tag url: '/login' do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from logging in: </h1>
+    </div>
